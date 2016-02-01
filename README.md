@@ -90,13 +90,15 @@ If you make changes to the `/config/twigbridge.php` file you will most likely ha
 
 # Installation on Lumen
 
-For Lumen, you need to load the same Service Provider, but you have to disable the `Auth`, `Translator` and `Url` extensions in your local configuration.
+For Lumen, you need to load the same Service Provider, but you have to disable the `Auth` and `Translator` extensions in your local configuration.
 Copy the `config/twigbridge.php` file to your local `config` folder and register the configuration + Service Provider in `bootstrap/app.php`:
 
 ```php
 $app->configure('twigbridge'); 
 $app->register('TwigBridge\ServiceProvider');
 ```
+
+Replace `TwigBridge\Extension\Laravel\Url` with `TwigBridge\Extension\Lumen\Url` to access URL and routing functionality in views when using twig.
 
 # Usage
 
